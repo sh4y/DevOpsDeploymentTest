@@ -25,5 +25,5 @@ steps:
     TaskType: 'sqlQuery'
     SqlFile: 'C:/Deployment/deploymentscript.sql'
     ServerName: 'DEV-MVDW-041\SQLEXPRESS'
-    Database: 'default'
+    DatabaseName: 'default'
     AuthScheme: 'windowsAuthentication'
