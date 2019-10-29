@@ -25,5 +25,9 @@ steps:
     TaskType: 'sqlQuery'
     SqlFile: 'C:/Deployment/deploymentscript.sql'
     ServerName: 'DEV-MVDW-041\SQLEXPRESS'
-    DatabaseName: 'default'
+    DatabaseName: 'Internal'
     AuthScheme: 'windowsAuthentication'
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: 'C:/Deployment/pyscript.py'
