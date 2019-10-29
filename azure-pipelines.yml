@@ -15,6 +15,8 @@ steps:
 - task: WindowsMachineFileCopy@2
   inputs:
     SourcePath: '$(Build.SourcePath)'
+    AdminUserName: '$(TargetMachineAdminUsername)'
+    AdminPassword: '$(TargetMachineAdminPassword)'
     MachineNames: '192.168.5.41'
     TargetPath: 'C:/Deployment/'
     displayName: 'Copying current repo.'
