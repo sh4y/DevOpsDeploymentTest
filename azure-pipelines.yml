@@ -24,6 +24,6 @@ steps:
   inputs:
     TaskType: 'sqlQuery'
     SqlFile: 'C:/Deployment/deploymentscript.sql'
-    ServerName: 'DEV-MVDW-041'
-    DatabaseName: 'SQLEXPRESS'
+    ServerName: 'DEV-MVDW-041/SQLEXPRESS'
+    DatabaseName: 'DevOps'
     AuthScheme: 'windowsAuthentication'
