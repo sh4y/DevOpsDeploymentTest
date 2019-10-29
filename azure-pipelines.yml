@@ -14,7 +14,7 @@ pool:
 steps:
 - task: WindowsMachineFileCopy@2
   inputs:
-    SourcePath: '$(Build.SourcePath)'
+    SourcePath: '$(Build.SourcesDirectory)'
     AdminUserName: '$(TargetMachineAdminUsername)'
     AdminPassword: '$(TargetMachineAdminPassword)'
     MachineNames: '192.168.5.41'
