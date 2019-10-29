@@ -1,0 +1,37 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows2019'
+  name: 'Default'
+  demands: TESTDEPLOYER -equals 1
+
+steps:
+- task: WindowsMachineFileCopy@2
+  inputs:
+    SourcePath: '$(Build.SourcesDirectory)'
+    AdminUserName: '$(TargetMachineAdminUsername)'
+    AdminPassword: '$(TargetMachineAdminPassword)'
+    MachineNames: '192.168.5.41'
+    TargetPath: 'C:/Deployment/'
+    displayName: 'Copying current repo.'
+- task: SqlDacpacDeploymentOnMachineGroup@0
+  inputs:
+    TaskType: 'sqlQuery'
+    SqlFile: 'C:/Deployment/deploymentscript.sql'
+    ServerName: 'DEV-MVDW-041\SQLEXPRESS'
+    DatabaseName: 'Internal'
+    AuthScheme: 'windowsAuthentication'   
+
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: 'C:/Deployment/pyscript.py'
+    pythonInterpreter: $(PythonLocation)
+
