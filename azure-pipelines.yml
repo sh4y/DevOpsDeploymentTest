@@ -20,3 +20,10 @@ steps:
     MachineNames: '192.168.5.41'
     TargetPath: 'C:/Deployment/'
     displayName: 'Copying current repo.'
+- task: SqlDacpacDeploymentOnMachineGroup@0
+  inputs:
+    TaskType: 'sqlQuery'
+    SqlFile: 'C:/Deployment/deploymentscript.sql'
+    ServerName: 'localhost'
+    DatabaseName: 'SQLEXPRESS'
+    AuthScheme: 'windowsAuthentication'
