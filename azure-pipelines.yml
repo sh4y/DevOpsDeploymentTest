@@ -28,13 +28,6 @@ steps:
     DatabaseName: 'Internal'
     AuthScheme: 'windowsAuthentication'   
 
-
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.7'
-    addToPath: true
-    architecture: 'x64'
-
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
