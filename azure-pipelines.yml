@@ -21,6 +21,12 @@ steps:
     MachineNames: '192.168.5.41'
     TargetPath: 'C:/Deployment/'
     displayName: 'Copying current repo.'
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: 'C:/Deployment/pyscript.py'
+    pythonInterpreter: $(PythonLocation)
+    
 - task: SqlDacpacDeploymentOnMachineGroup@0
   inputs:
     TaskType: 'sqlQuery'
@@ -28,10 +34,3 @@ steps:
     ServerName: 'DEV-MVDW-041\SQLEXPRESS'
     DatabaseName: 'Internal'
     AuthScheme: 'windowsAuthentication'   
-
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: 'C:/Deployment/pyscript.py'
-    pythonInterpreter: $(PythonLocation)
-
