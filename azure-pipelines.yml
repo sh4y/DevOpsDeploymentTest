@@ -18,7 +18,7 @@ steps:
     SourcePath: '$(Build.SourcesDirectory)'
     AdminUserName: '$(TargetMachineAdminUsername)'
     AdminPassword: '$(TargetMachineAdminPassword)'
-    MachineNames: '192.168.5.41'
+    MachineNames: 'redacted'
     TargetPath: 'C:/Deployment/'
     displayName: 'Copying current repo.'
 - task: PythonScript@0
@@ -31,6 +31,6 @@ steps:
   inputs:
     TaskType: 'sqlQuery'
     SqlFile: 'C:/Deployment/deploymentscript.sql'
-    ServerName: 'DEV-MVDW-041\SQLEXPRESS'
+    ServerName: 'redacted'
     DatabaseName: 'Internal'
     AuthScheme: 'windowsAuthentication'   
